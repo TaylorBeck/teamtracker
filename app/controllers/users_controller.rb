@@ -22,6 +22,12 @@ class UsersController < ActionController::Base
     render 'users/login'
   end
 
+  # POST
+  def session
+    @user = User.find()
+    session[:user_id] = User.find()
+  end
+
   private
 
   def user_params
