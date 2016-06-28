@@ -1,5 +1,7 @@
 <h2>Teams</h2>
 
+<%= button_to "Add Player", :class => "button5", :method => :get  %>
+
 <% @teams.each do |team| %>
   <%= team.name %><br>
   <%= team.sport_id %><br><br>
