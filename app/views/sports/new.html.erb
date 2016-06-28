@@ -1,0 +1,16 @@
+<h2>Create New Sport</h2>
+
+<% if @sport.errors.any? %>
+  <ul>
+    <% @sport.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @sport do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>
