@@ -9,9 +9,13 @@
 <% end %>
 
 <form class="registration" action="/users" method="POST">
+  <label>Name</label>
   <input placeholder="Erlich Bachman" type="text" name="user[name]">
+  <label>Phone</label>
   <input placeholder="(123)555-1234" type="tel" name="user[phone_number]">
+  <label>Email</label>
   <input placeholder="erlich.bachman@gmail.com" type="text" name="user[email]">
+  <label>Password</label>
   <input type="password" name="user[password]">
 
   <input type="submit" value="Sign up">
