@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
-  resources :teams
+  resources :teams do
+    resources :team_player_details
+  end
+
   resources :players
   resources :sports
+  resources :games
 end
