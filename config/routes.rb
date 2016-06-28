@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   resources :teams
+  resources :players
 end
