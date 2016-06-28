@@ -22,11 +22,11 @@ class UsersController < ApplicationController
     render 'users/login'
   end
 
-  # POST
-  def session
-    @user = User.find()
-    session[:user_id] = User.find()
-  end
+  # # POST
+  # def session
+  #   @user = User.find()
+  #   # session[:user_id] = User.find()
+  # end
 
   private
 
