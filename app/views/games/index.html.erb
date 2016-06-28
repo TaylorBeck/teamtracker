@@ -1,9 +1,4 @@
 <h2>Upcoming Games</h2>
 
 
-<% @games.each do |game| %>
-  <%= game.team.name %>
-  <%= game.date %><br>
-  <%= game.time %><br>
-  <%= game.location %><br>
-<% end %>
+<%= render partial: "game", collection: @games %>
