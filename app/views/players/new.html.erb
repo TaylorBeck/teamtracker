@@ -1,0 +1,25 @@
+<h2>Register a new player</h2>
+
+<% if @player.errors.any? %>
+  <ul>
+    <% @player.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @player do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= label_tag(:gender_male, "Male") %>
+  <%= f.radio_button(:gender, "male") %>
+  <%= label_tag(:gender_female, "Female") %>
+  <%= f.radio_button(:gender, "female") %>
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+
+  <%= f.submit "Register player" %>
+
+<% end %>
