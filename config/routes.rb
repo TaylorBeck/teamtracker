@@ -1,21 +1,12 @@
 Rails.application.routes.draw do
-  get 'games/index'
-
-  get 'games/new'
-
-  get 'games/create'
-
-  get 'games/show'
-
-  get 'games/edit'
-
-  get 'games/update'
-
-  get 'games/destroy'
-
   get '/register' => 'users#register'
-  get '/login' => 'users#login'
+  get '/login' => 'user_sessions#new'
+  get '/logout' => 'user_sessions#destroy'
   post '/users' => 'users#create'
 
+  resources :user_sessions, only: [:new, :create, :destroy]
+
   resources :teams
+  resources :players
+  resources :sports
 end

@@ -17,11 +17,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET
-  def login
-    render 'users/login'
-  end
-
   private
 
   def user_params
