@@ -1,7 +1,7 @@
 class CreateSports < ActiveRecord::Migration
   def change
     create_table :sports do |t|
-      t.integer :name, null: false
+      t.string   :name, null: false
 
       t.timestamps null: false
     end
