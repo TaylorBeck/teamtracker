@@ -17,17 +17,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET
-  def login
-    render 'users/login'
-  end
-
-  # # POST
-  # def session
-  #   @user = User.find()
-  #   # session[:user_id] = User.find()
-  # end
-
   private
 
   def user_params
