@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag :application %>
-    <%= csrf_meta_tag %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-    <div id="container">
+    <title>TeamTracker</title>
+      <div id="container">
+      <%=image_tag("TeamTracker-Banner.png", alt: "Team Tracker Banner", :width => 1200, :height => 150, :crop => :fill, :align=> "middle", :class => "image-container")%>
+      <%= stylesheet_link_tag "application" %>
+      <%= javascript_include_tag :application %>
+      <%= csrf_meta_tag %>
+
+<!-- Double check following 4 lines of code -->
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
+<!--  -->
+      <%= button_to 'HOME', root_path, class: "nav_button", id: "nav_button_left" %>
+
       <% if logged_in? %>
-        <%= link_to 'LOGOUT', logout_path %>
+         <%= button_to 'LOGOUT', logout_path, class: "nav_button", id: "nav_button_right" %>
       <% else %>
-        <%= link_to 'LOGIN', login_path %>
+        <%= button_to 'LOGIN', login_path, class: "nav_button", id: "nav_button_right" %>
       <% end %>
+      <%= button_to 'MANAGE', new_player_path, class: "nav_button", id: "nav_button_right" %>
+
+  </head>
+  <br><br><br>
+  <body class="body-container">
       <%= yield %>
-    </div>
   </body>
+
+  </div>
+
 </html>
