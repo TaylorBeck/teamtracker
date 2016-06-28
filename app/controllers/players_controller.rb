@@ -22,11 +22,17 @@ class PlayersController < ApplicationController
   end
 
   def edit
-
+    @player = Player.find(params[:id])
   end
 
   def update
+    @player = Player.find(params[:id])
 
+    if @player.update(player_params)
+      redirect_to teams_path
+    else
+      render "edit"
+    end
   end
 
   def destroy
