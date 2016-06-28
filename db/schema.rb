@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160628020024) do
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",          null: false
-    t.string   "sport",         null: false
+    t.integer  "sport_id",      null: false
     t.integer  "min_players",   null: false
     t.integer  "ideal_players", null: false
     t.integer  "min_females",   null: false
