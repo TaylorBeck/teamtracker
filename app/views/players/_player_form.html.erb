@@ -8,7 +8,7 @@
 
 <%= form_for @player do |f| %>
   <%= f.label :name %>:
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, :autofocus=>true %><br>
 
   <%= label_tag(:gender_male, "Male") %>:
   <%= f.radio_button(:gender, "male") %><br>

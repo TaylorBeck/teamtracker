@@ -8,7 +8,7 @@
 
 <%= form_for @team do |f| %>
   <%= f.label :name %>:
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, :autofocus=>true %><br>
 
   <%= f.label :sport %>
   <%= select("team", "sport_id", Sport.all.collect { |s| [s.name, s.id]}) %><br>
