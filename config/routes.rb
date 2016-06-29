@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/login' => 'user_sessions#new'
   get '/logout' => 'user_sessions#destroy'
   post '/users' => 'users#create'
-  get '/users/:id/manage' => 'users#manage'
+  get '/manage' => 'users#manage', as: :manage
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
