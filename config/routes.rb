@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'teams#index'
+  root to: 'users#index'
 
   get '/register' => 'users#register'
   get '/login' => 'user_sessions#new'
