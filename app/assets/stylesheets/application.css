@@ -189,4 +189,12 @@ input {
   border-radius: 10px;
  }
 
+div.manage {
+  float: left;
+  margin: 30px;
+}
 
+ul.manage {
+  list-style: none;
+  padding-left: 0;
+}
