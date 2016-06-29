@@ -1,28 +1,3 @@
 <h2>Create New Team</h2>
 
-<% if @team.errors.any? %>
-  <ul>
-    <% @team.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_for @team do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %>
-
-  <%= f.label :sport %>:
-  <%= f.text_field :sport %>
-
-  <%= f.label :min_players %>:
-  <%= f.number_field :min_players %>
-
-  <%= f.label :ideal_players %>:
-  <%= f.number_field :ideal_players %>
-
-  <%= f.label :min_females %>:
-  <%= f.number_field :min_females %>
-
-  <%= f.submit %>
-<% end %>
+<%= render "team_form" %>

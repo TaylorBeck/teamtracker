@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+
+  def index
+  end
   # GET
   def register
     render 'users/new'
@@ -15,6 +18,14 @@ class UsersController < ApplicationController
       @errors = @user.errors.full_messages
       render 'users/new'
     end
+  end
+
+  # GET
+  def manage
+    @user = current_user
+    @players = Player.all
+    @teams = Team.all
+    @games = Game.all
   end
 
   private

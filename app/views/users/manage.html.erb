@@ -1,0 +1,32 @@
+<div class="manage" style="float:left; margin: 30px;">
+<h2>Players</h2>
+<%= link_to 'Create New Player', new_player_path %>
+<ul class="manage" style="list-style: none; padding-left:0;">
+<% @players.each do |player| %>
+  <li><%= player.name %></li>
+  <li><%= player.phone_number %></li><br><br>
+<% end %>
+</ul>
+</div>
+
+<div class="manage" style="float:left; margin: 30px;">
+<h2>Teams</h2>
+<%= link_to 'Create New Team', new_team_path %>
+<ul class="manage" style="list-style: none; padding-left:0;">
+<% @teams.each do |team| %>
+  <li><%= team.name %></li><br><br><br>
+<% end %>
+</ul>
+</div>
+
+<div class="manage" style="float:left; margin: 30px;">
+<h2>Games</h2>
+<%= link_to 'Create New Game', new_game_path %>
+<ul class="manage" style="list-style: none; padding-left:0;">
+<% @games.each do |game| %>
+  <li><%= game.date %></li>
+  <li><%= game.time %></li>
+  <li><%= game.location %></li><br>
+<% end %>
+</ul>
+</div>

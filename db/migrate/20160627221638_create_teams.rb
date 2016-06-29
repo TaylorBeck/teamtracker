@@ -2,7 +2,7 @@ class CreateTeams < ActiveRecord::Migration
   def change
     create_table :teams do |t|
       t.string   :name, null: false
-      t.string   :sport, null: false
+      t.integer   :sport_id, null: false
       t.integer  :min_players, null: false
       t.integer  :ideal_players, null: false
       t.integer  :min_females, null: false

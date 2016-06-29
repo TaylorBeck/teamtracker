@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.manager_id = 1
+    @team.manager = current_user
     if @team.save
       redirect_to @team
     else
@@ -23,9 +23,17 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    @team = Team.find(params[:id])
   end
 
   def update
+    @team = Team.find(params[:id])
+
+    if @team.update(team_params)
+      redirect_to team_path(@team)
+    else
+      render "edit"
+    end
   end
 
   def destroy
@@ -33,7 +41,7 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :sport, :min_players, :ideal_players, :min_females)
+    params.require(:team).permit(:name, :sport_id, :min_players, :ideal_players, :min_females)
   end
 
 end
