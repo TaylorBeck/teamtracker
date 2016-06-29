@@ -1,5 +1,9 @@
-<fieldset class="player">
-    <legend><b><%= player.name %></b></legend>
-    <b>Gender:</b> <%= player.gender %><br>
-    <b>Phone:</b>  <%= player.phone_number %><br>
+<fieldset class="rsvp">
+    <legend><b><%= rsvp.responder.name %><% if rsvp.responder.team_player_details.find_by(team: @game.team).key_position %>&#9733;<% end %></b></legend>
+    <b>Gender:</b> <%= rsvp.responder.gender %><br>
+    <b>Phone:</b>  <%= rsvp.responder.phone_number %><br>
+
+    <div class="response-button">Yes</div>
+    <div class="response-button">No</div>
 </fieldset>
+
