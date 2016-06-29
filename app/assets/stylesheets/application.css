@@ -175,3 +175,18 @@ input {
 .player {
   width: 300px;
  }
+
+ .index_button {
+  display: inline;
+ }
+
+ .index-buttons-container {
+  border: 1px solid black;
+  width: 350px;
+  margin: auto;
+  margin-top: 100px;
+  padding-bottom: 24px;
+  border-radius: 10px;
+ }
+
+
