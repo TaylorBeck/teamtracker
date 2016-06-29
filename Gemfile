@@ -31,6 +31,8 @@ gem 'delayed_job_active_record'
 
 gem 'daemons'
 
+gem 'rails_12factor'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
