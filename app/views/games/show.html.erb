@@ -10,15 +10,8 @@ Location: <%= @game.location %><br><br>
 <h2>Player RSVPs</h2>
 
 
-<%= render partial: "rsvp", collection: @game.rsvps %>
+<%= render partial: "rsvps/rsvp", collection: @game.rsvps %>
 
-<% @game.players.each do |player| %>
-  <fieldset class="player">
-    <legend><b><%= player.name %></b></legend>
-    <b>Gender:</b> <%= player.gender %><br>
-    <b>Phone:</b>  <%= player.phone_number %><br>
-  </fieldset>
-<% end %>
 
 
 
