@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   private
   def require_login
     if !logged_in?
-      redirect_to('/user_sessions/new')
-      flash[:notice] = "Please login or register before continuing"
+      redirect_to('/')
+      flash[:notice] = "Please login or register before continuing."
     end
   end
 end
