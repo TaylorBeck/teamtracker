@@ -14,7 +14,7 @@
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
 <!--  -->
-      <%= button_to 'HOME', games_path, class: "nav_button", id: "nav_button_left" %>
+      <%= button_to 'HOME', games_path, class: "nav_button", id: "nav_button_left", method: :get %>
 
       <% if logged_in? %>
          <%= button_to 'LOGOUT', logout_path, class: "nav_button", id: "nav_button_right", method: :get %>
