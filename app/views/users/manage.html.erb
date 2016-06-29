@@ -1,0 +1,35 @@
+<div class="big-manage">
+  <div class="manage">
+  <h2>Players</h2>
+  <%= link_to 'Create New Player', new_player_path, class: "nav_button index_button" %><br><br>
+  <ul class="manage">
+  <% @players.each do |player| %>
+    <li><%= player.name %></li>
+    <li><%= player.phone_number %></li><br><br><br>
+  <% end %>
+  </ul>
+  </div>
+
+  <div class="manage">
+  <h2>Teams</h2>
+  <%= link_to 'Create New Team', new_team_path, class: "nav_button index_button" %><br><br>
+  <ul class="manage">
+  <% @teams.each do |team| %>
+    <li><%= link_to "#{team.name}", team %></li><br><br><br><br>
+  <% end %>
+  </ul>
+  </div>
+
+  <div class="manage">
+  <h2>Games</h2>
+  <%= link_to 'Create New Game', new_game_path, class: "nav_button index_button" %><br><br>
+  <ul class="manage">
+  <% @games.each do |game| %>
+    <li><%= link_to "#{game.team.name}", game %></li>
+    <li><%= game.date %></li>
+    <li><%= game.time %></li>
+    <li><%= game.location %></li><br>
+  <% end %>
+  </ul>
+  </div>
+</div>

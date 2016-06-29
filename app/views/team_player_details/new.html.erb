@@ -1,0 +1,24 @@
+<h2>Add Player to Team</h2>
+
+<% if @team_player_detail.errors.any? %>
+  <ul>
+    <% @team_player_detail.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@team, @team_player_detail] do |f| %>
+  <%= f.label :player_id %>:
+  <%= f.collection_select :player_id, Player.all, :id, :name %><br>
+
+  <%= f.label :skill_level %>:
+  <%= f.select :skill_level, (0..10) %><br>
+
+  <p>Can Play Key Position?:</p>
+
+  <%= f.check_box :key_position %>
+  <%= f.label :key_position, "Yes" %>
+
+  <%= f.submit "Add Player" %>
+<% end %>
