@@ -3,7 +3,7 @@
     <b>Gender:</b> <%= rsvp.responder.gender %><br>
     <b>Phone:</b>  <%= rsvp.responder.phone_number %><br>
 
-    <div class="response-button">Yes</div>
-    <div class="response-button">No</div>
+    <div class="response-button b-yes <%= rsvp_class(rsvp) %>"><%= link_to "Yes", rsvp_path(rsvp, rsvp: {response: :yes}), method: :patch %></div>
+    <div class="response-button b-no <%= rsvp_class(rsvp) %>"><%= link_to "No", rsvp_path(rsvp, rsvp: {response: :no}), method: :patch %></div>
 </fieldset>
 
