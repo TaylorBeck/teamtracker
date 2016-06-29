@@ -19,14 +19,14 @@ class RsvpsController < ApplicationController
     player_who_sent_message = Player.find_by(phone_number: params['From'])
     
     # Get the game from the user-specified game ID
-    id_user_sent = params['Body'].split[" "].last.to_i
+    id_user_sent = params['Body'].split(" ").last.to_i
     game = Game.find_by(id: id_user_sent)
 
     # Get the Rsvp between the game and the player
     rsvp = Rsvp.where(player: player_who_sent_message, game: game)
 
     if rsvp
-      if params['Body'].downcase == 'yes'
+      if params['Body'].split(" ").first.downcase == 'yes'
         #set response to yes
 
         manager_phone = rsvp.game.team.manager.phone_number
@@ -86,7 +86,7 @@ class RsvpsController < ApplicationController
       else
         #invalid text received
         response = Twilio::TwiML::Response.new do |r|
-          r.Message "Sorry, I'm a dumb robot and couldn't understand that. Please respond with either 'yes #{game.id}' or 'no #{game.id}'."
+          r.Message "Sorry, I'm a dumb robot and couldn't understand that. Please contact your coach for help."
         end
 
         render :xml => response.to_xml

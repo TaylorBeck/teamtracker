@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/logout' => 'user_sessions#destroy'
   post '/users' => 'users#create'
   get '/manage' => 'users#manage', as: :manage
+  post '/receive_response_from_player' => 'rsvps#receive_response_from_player'
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
