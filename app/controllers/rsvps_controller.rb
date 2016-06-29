@@ -1,7 +1,7 @@
 class RsvpsController < ApplicationController
 
   # DISABLE 3rd party POST request detection
-  skip_before_filter :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token, :only => "receive_response_from_player"
 
   def update
     p params

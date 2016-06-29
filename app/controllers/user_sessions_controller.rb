@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
 
   def create
     if login(params[:user_sessions][:email], params[:user_sessions][:password])
-      redirect_back_or_to(teams_path)
+      redirect_back_or_to(games_path)
     else
       render action: :new
     end

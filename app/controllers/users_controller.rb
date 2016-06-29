@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_login, only: [:manage]
 
 
   def index
@@ -22,10 +23,14 @@ class UsersController < ApplicationController
 
   # GET
   def manage
-    @user = current_user
-    @players = Player.all
-    @teams = Team.all
-    @games = Game.all
+    if logged_in?
+      @user = current_user
+      @players = Player.all
+      @teams = Team.all
+      @games = Game.all
+    else
+      render ''
+    end
   end
 
   private
