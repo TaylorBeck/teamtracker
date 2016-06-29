@@ -2,33 +2,18 @@
 <html>
   <head>
     <title>TeamTracker</title>
-      <div id="container">
+    <div id="container">
       <%=image_tag("TeamTracker-Banner.png", alt: "Team Tracker Banner", :width => 1200, :height => 150, :crop => :fill, :align=> "middle", :class => "image-container")%>
-      <%= stylesheet_link_tag "application" %>
-      <%= javascript_include_tag :application %>
-      <%= csrf_meta_tag %>
+      <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+      <%= csrf_meta_tags %>
 
-<!-- Double check following 4 lines of code -->
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-<!--  -->
-      <%= button_to 'HOME', games_path, class: "nav_button", id: "nav_button_left", method: :get %>
+      <%= render partial: "layouts/page_layout" %>
 
-      <% if logged_in? %>
-         <%= button_to 'LOGOUT', logout_path, class: "nav_button", id: "nav_button_right", method: :get %>
-      <% else %>
-        <%= button_to 'LOGIN', login_path, class: "nav_button", id: "nav_button_right", :method => :get %>
-      <% end %>
-      <%= button_to 'MANAGE', manage_path, class: "nav_button", id: "nav_button_right", method: :get %>
+  </head><br><br><br>
 
-  </head>
-  <br><br><br>
   <body class="body-container">
-      <%= yield %>
+    <%= yield %>
   </body>
-
   </div>
-
 </html>
