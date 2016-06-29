@@ -1,0 +1,12 @@
+<article class="game-details" <% if game.status == "full" %>>
+  <div>
+    <%= game.team.name %>
+    <%= game.date %><br>
+    <%= game.time %><br>
+    <%= game.location %><br>
+  </div>
+  <div>
+    X /<%= game.team.ideal_players %>
+    <span>Key player</span>
+  </div>
+</article>

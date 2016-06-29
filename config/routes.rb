@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :players
   resources :sports
   resources :games
+  resources :rsvps, only: [:update]
 end

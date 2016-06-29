@@ -16,8 +16,9 @@
   <%= f.select :skill_level, (0..10) %><br>
 
   <p>Can Play Key Position?:</p>
+
   <%= f.check_box :key_position %>
-  <%= f.label(:key_position_true, "Yes") %>
+  <%= f.label :key_position, "Yes" %>
 
   <%= f.submit "Add Player" %>
 <% end %>

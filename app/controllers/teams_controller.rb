@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.manager_id = 1
+    @team.manager = current_user
     if @team.save
       redirect_to @team
     else

@@ -1,5 +1,5 @@
 class TeamPlayerDetail < ActiveRecord::Base
-  #validates :key_position   #working on it
+  validates :key_position, inclusion: { in: [true, false] }
   validates :skill_level, presence: true
 
   belongs_to :team

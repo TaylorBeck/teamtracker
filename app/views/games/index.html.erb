@@ -1,7 +1,4 @@
-<h2>Games</h2>
+<h2>Upcoming Games</h2>
 
-<% @games.each do |game| %>
-  <%= game.date %><br>
-  <%= game.time %><br>
-  <%= game.location %><br>
-<% end %>
+
+<%= render partial: "game", collection: @games %>

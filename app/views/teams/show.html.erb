@@ -1,6 +1,16 @@
 <h2><%= @team.name %></h2>
 
-Sport: <%= @team.sport.name %><br><br>
+<b>Sport: <%= @team.sport.name %></b><br><br>
 
-Players: [coming soon]
+<%= button_to "Add Player", new_team_team_player_detail_path(@team),:class => "button5", :method => :get  %>
+
+<h3>Players:</h3>
+
+<% @team.players.each do |player| %>
+  <fieldset class="player">
+    <legend><b><%= player.name %></b></legend>
+    <b>Gender:</b> <%= player.gender %><br>
+    <b>Phone:</b>  <%= player.phone_number %><br>
+  </fieldset>
+<% end %>
 
