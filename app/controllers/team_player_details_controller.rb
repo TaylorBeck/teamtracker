@@ -1,5 +1,6 @@
 class TeamPlayerDetailsController < ApplicationController
 
+
   def index
   end
 
