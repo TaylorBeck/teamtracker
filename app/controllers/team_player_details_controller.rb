@@ -11,13 +11,8 @@ class TeamPlayerDetailsController < ApplicationController
   def create
     # find team from params
     @team = Team.find(params[:team_id])
-    # assign key_position from form checkbox
-    key_position = team_player_detail_params.fetch(:key_position)
-    params[:team_player_detail][:key_position] = key_position ? true : false
     # create new team_player_detail object
     @team_player_detail = TeamPlayerDetail.new(team_player_detail_params)
-    # assign correct team to detail
-    @team_player_detail.team_id = params[:team_id]
     # save new object to team
     if @team.team_player_details << @team_player_detail
       redirect_to @team
