@@ -5,7 +5,7 @@ Team.delete_all
 Player.delete_all
 Sport.delete_all
 
-# create Gary user
+# create Gary as user
 gary = User.create(name: 'Gary', phone_number: '123-456-7890', email: 'email@gmail.com', password: 'pass')
 
 # create sports
@@ -15,7 +15,7 @@ soccer = Sport.create(name: 'Soccer')
 softball = Sport.create(name: 'Softball')
 
 # create teams
-team1 = Team.create(name: "Gary's Gilligans", sport: soccer, ideal_players: 6, min_players: 4, min_females: 2, manager: gary)
+team1 = Team.create(name: "Gary's Gilligans", sport: soccer, ideal_players: 5, min_players: 4, min_females: 2, manager: gary)
 team2 = Team.create(name: "Gary's Gophers", sport: volleyball, ideal_players: 4, min_players: 2, min_females: 1, manager: gary)
 team3 = Team.create(name: "Gary's Giraffes", sport: basketball, ideal_players: 5, min_players: 4, min_females: 2, manager: gary)
 team4 = Team.create(name: "Gary's Geese", sport: softball, ideal_players: 8, min_players: 6, min_females: 1, manager: gary)
@@ -24,13 +24,13 @@ team6 = Team.create(name: "Gary's Gorillas", sport: volleyball, ideal_players: 8
 
 # create games
 game1 = Game.create(team: team1, date: DateTime.now+1, time: DateTime.now, location: 'North Clairemont Rec Center')
-game2 = Game.create(team: team2, date: DateTime.now+2, time: DateTime.now, location: 'South Clairemont Rec Center')
-game3 = Game.create(team: team1, date: DateTime.now+2, time: DateTime.now, location: 'East Clairemont Rec Center')
+game2 = Game.create(team: team2, date: DateTime.now+2, time: DateTime.now, location: 'Golden Hill Rec Center')
+game3 = Game.create(team: team1, date: DateTime.now+2, time: DateTime.now, location: 'North Park Rec Center')
 game4 = Game.create(team: team3, date: DateTime.now+3, time: DateTime.now, location: 'West Clairemont Rec Center')
-game5 = Game.create(team: team4, date: DateTime.now+4, time: DateTime.now, location: 'North Clairemont Rec Center')
-game6 = Game.create(team: team5, date: DateTime.now+5, time: DateTime.now, location: 'South Clairemont Rec Center')
+game5 = Game.create(team: team4, date: DateTime.now+4, time: DateTime.now, location: 'Hillcrest Rec Center')
+game6 = Game.create(team: team5, date: DateTime.now+5, time: DateTime.now, location: 'Mission Valley Rec Center')
 game7 = Game.create(team: team6, date: DateTime.now+6, time: DateTime.now, location: 'East Clairemont Rec Center')
-game8 = Game.create(team: team4, date: DateTime.now+7, time: DateTime.now, location: 'West Clairemont Rec Center')
+game8 = Game.create(team: team4, date: DateTime.now+7, time: DateTime.now, location: 'Golden Hill Rec Center')
 
 # create players
 mike = Player.create(name: 'Mike', gender: 'm', phone_number: '619-944-8738')
@@ -46,11 +46,12 @@ fred = Player.create(name: 'Fred', gender: 'm', phone_number: '555-555-4321')
 # add players to teams (create team-player-details)
 joeteam1 = TeamPlayerDetail.create(key_position: true, skill_level: 5, player: joe, team: team1)
 janeteam1 = TeamPlayerDetail.create(key_position: false, skill_level: 10, player: jane, team: team1)
-maryteam2 = TeamPlayerDetail.create(key_position: true, skill_level: 7, player: mary, team: team2)
-fredteam2 = TeamPlayerDetail.create(key_position: false, skill_level: 2, player: fred, team: team2)
 miketeam1 = TeamPlayerDetail.create(key_position: true, skill_level: 5, player: mike, team: team1)
 elliotteam1 = TeamPlayerDetail.create(key_position: false, skill_level: 10, player: elliot, team: team1)
 mandyteam1 = TeamPlayerDetail.create(key_position: true, skill_level: 7, player: mandy, team: team1)
+
+maryteam2 = TeamPlayerDetail.create(key_position: true, skill_level: 7, player: mary, team: team2)
+fredteam2 = TeamPlayerDetail.create(key_position: false, skill_level: 2, player: fred, team: team2)
 marthateam2 = TeamPlayerDetail.create(key_position: false, skill_level: 2, player: martha, team: team2)
 taylorteam2 = TeamPlayerDetail.create(key_position: false, skill_level: 2, player: taylor, team: team2)
 
@@ -63,11 +64,11 @@ rsvp4 = Rsvp.create(responder: mandy, game: game1, response: "yes")
 
 rsvp6 = Rsvp.create(responder: martha, game: game2, response: "no")
 rsvp7 = Rsvp.create(responder: taylor, game: game2, response: "yes")
-rsvp8 = Rsvp.create(responder: mary, game: game2, response: "yes")
-# rsvp9 = Rsvp.create(responder: fred, game: game2, response: "none")
+# rsvp8 = Rsvp.create(responder: mary, game: game2, response: "none")
+rsvp9 = Rsvp.create(responder: fred, game: game2, response: "yes")
 
 rsvp10 = Rsvp.create(responder: joe, game: game3, response: "yes")
-# rsvp11 = Rsvp.create(responder: jane, game: game3, response: "none")
+rsvp11 = Rsvp.create(responder: jane, game: game3, response: "yes")
 rsvp12 = Rsvp.create(responder: mike, game: game3, response: "yes")
 rsvp13 = Rsvp.create(responder: mandy, game: game3, response: "yes")
-rsvp14 = Rsvp.create(responder: elliot, game: game3, response: "no")
+rsvp14 = Rsvp.create(responder: elliot, game: game3, response: "yes")
