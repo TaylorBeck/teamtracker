@@ -200,4 +200,12 @@ input {
   display: inline-block;
  }
 
+div.manage {
+  float: left;
+  margin: 30px;
+}
 
+ul.manage {
+  list-style: none;
+  padding-left: 0;
+}
