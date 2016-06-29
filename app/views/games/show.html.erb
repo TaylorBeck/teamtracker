@@ -1,8 +1,8 @@
 <h2>Game details:</h2>
 
-Date: <%= @game.date %><br><br>
+Date: <%= @game.date.strftime('%m/%d/%Y') %><br><br>
 
-Time: <%= @game.time %><br><br>
+Time: <%= @game.time.strftime('%I:%M %p') %><br><br>
 
 Location: <%= @game.location %><br><br>
 
