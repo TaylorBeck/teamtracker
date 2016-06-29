@@ -37,7 +37,12 @@
   <div>
 
   <%= link_to game.team.name, controller: "games", action: "show", id: game.id %>
+    <br>
+    <%= game.team.sport.name %>
+    <br>
+    Ideal players: <%= game.team.ideal_players %>
 
+    <br>
     <p><%= game.date.strftime('%m/%d/%Y') %><br>
     <%= game.time.strftime('%I:%M %p') %> <br>
     <%= game.location %></p><br>
@@ -45,10 +50,10 @@
 
 
   <div class="player_num", id="<%= set_id %>" >
-     rsvp / ideal <br>
-     <%=rsvp_count%> / <%= game.team.ideal_players %>
+     RSVP / Minimum: <br>
+     <%=rsvp_count%> / <%= game.team.min_players %>
   </div>
   <br>
-  <span class="key_player", id="key_player-<%=key_bool%>">Key players:<br> <%= keyposition_count %> </span>
+  <span class="key_player", id="key_player-<%=key_bool%>">Key Players:<br> <%= keyposition_count %> </span>
 
 </article>
