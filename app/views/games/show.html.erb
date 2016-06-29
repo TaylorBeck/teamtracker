@@ -10,7 +10,7 @@ Location: <%= @game.location %><br><br>
 <h2>Player RSVPs</h2>
 
 
-<%= render partial: "rsvps/rsvp", collection: @game.rsvps %>
+<%= render partial: "rsvps/rsvp", collection: @game.rsvps.sort_by(&:created_at) %>
 
 
 

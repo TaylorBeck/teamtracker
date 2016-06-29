@@ -209,3 +209,12 @@ ul.manage {
   list-style: none;
   padding-left: 0;
 }
+
+.b-yes.button-yes {
+  background-color: green;
+}
+
+.b-no.button-no {
+  background-color: red;
+}
+
