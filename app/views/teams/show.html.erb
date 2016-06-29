@@ -2,7 +2,7 @@
 
 <b>Sport: <%= @team.sport.name %></b><br><br>
 
-<%= button_to "Add Player", :class => "button5", :method => :get  %>
+<%= button_to "Add Player", new_team_team_player_detail_path(@team),:class => "button5", :method => :get  %>
 
 <h3>Players:</h3>
 

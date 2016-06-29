@@ -167,3 +167,8 @@ input {
    border-top-color: #1b435e;
    background: #1b435e;
    }
+
+.player {
+  width: 300px;
+ }
+
