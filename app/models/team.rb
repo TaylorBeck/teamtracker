@@ -4,5 +4,5 @@ class Team < ActiveRecord::Base
   has_many :team_player_details
   has_many :players, through: :team_player_details
   belongs_to :sport
-  has_many :managers, foreign_key: :manager_id, class_name: :User
+  belongs_to :manager, foreign_key: :manager_id, class_name: :User
 end
