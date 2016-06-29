@@ -167,3 +167,11 @@ input {
    border-top-color: #1b435e;
    background: #1b435e;
    }
+
+.game-details {
+  background-color: red;
+}
+
+.player {
+  width: 300px;
+ }
