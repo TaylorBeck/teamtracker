@@ -8,20 +8,20 @@
 
 <%= form_for @team do |f| %>
   <%= f.label :name %>:
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br>
 
   <%= f.label :sport %>
-  <%= select("team", "sport_id", Sport.all.collect { |s| [s.name, s.id]}) %>
+  <%= select("team", "sport_id", Sport.all.collect { |s| [s.name, s.id]}) %><br>
   <br>
 
   <%= f.label :min_players %>:
-  <%= f.number_field :min_players %>
+  <%= f.number_field :min_players %><br>
 
   <%= f.label :ideal_players %>:
-  <%= f.number_field :ideal_players %>
+  <%= f.number_field :ideal_players %><br>
 
-  <%= f.label :min_females %>:
-  <%= f.number_field :min_females %>
+  <%= f.label :min_females, "Min women" %>:
+  <%= f.number_field :min_females %><br>
 
   <%= f.submit %>
 <% end %>
