@@ -13,6 +13,7 @@ class RsvpsController < ApplicationController
 
   # TWILIO sends a post request here
   def receive_response_from_player
+    boot_twilio
 
     # Find the player by the phone number that sent the text
     player_who_sent_message = Player.find_by(phone_number: params['From'])
@@ -28,7 +29,33 @@ class RsvpsController < ApplicationController
       if params['Body'].downcase == 'yes'
         #set response to yes
 
+        manager_phone = rsvp.game.team.manager.phone_number
+        team_name = rsvp.game.team.name
+        # Get date as 'Wednesday, June 2nd'
+        game_date = date.strftime("%A, %b #{date.day.ordinalize}")
+        # Get time as '5:30PM'
+        game_time = self.game.time.strftime("%l:%M%p").lstrip
+
+        player_name = rsvp.responder.name
+
         rsvp.update(response: "yes")
+
+        if (rsvp.game.rsvps.count { |rsvp| rsvp.response == 'yes' } >= rsvp.game.team.min_players)
+          # SEND OUT TEXT TO MANAGER - MINIMUM PLAYERS
+          @client.messages.create(
+            from: @twilio_number,
+            to: manager_phone,
+            body: "You now have the minimum amount of players for your team, '#{team_name}', to play on #{game_date} at #{game_time}."
+            )
+
+        elsif (rsvp.game.rsvps.count { |rsvp| rsvp.response == 'yes' } >= rsvp.game.team.ideal_players)
+          # SEND OUT TEXT TO MANAGER - FULL TEAM
+          @client.messages.create(
+            from: @twilio_number,
+            to: manager_phone,
+            body: "You now have the FULL amount of players for your team, '#{team_name}', to play on #{game_date} at #{game_time}."
+            )
+        end 
 
         response = Twilio::TwiML::Response.new do |r|
           r.Message "You have confirmed that you WILL be going to the game."
@@ -38,6 +65,16 @@ class RsvpsController < ApplicationController
 
       elsif params['Body'].downcase == 'no'
         #set response to no
+
+        if rsvp.response == 'yes'
+          # SEND OUT TEXT TO MANAGER - PLAYER DROPPED OUT
+
+          @client.messages.create(
+            from: @twilio_number,
+            to: manager_phone,
+            body: "#{player_name} has DROPPED OUT of the game for your team, '#{team_name}', who are playing on #{game_date} at #{game_time}."
+            )
+        end
 
         rsvp.update('no')
 
@@ -68,6 +105,12 @@ class RsvpsController < ApplicationController
 
   def response_params
     params.require(:rsvp).permit(:response)
+  end
+
+  # Configure Twilio
+  def boot_twilio
+    @twilio_number = ENV['TWILIO_NUMBER']
+    @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
   end
 
 end
