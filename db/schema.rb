@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20160628034730) do
   end
 
   create_table "team_player_details", force: :cascade do |t|
-    t.string   "key_position"
-    t.integer  "skill_level"
-    t.integer  "player_id"
+    t.boolean  "key_position", null: false
+    t.integer  "skill_level",  null: false
+    t.integer  "player_id",    null: false
     t.integer  "team_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
