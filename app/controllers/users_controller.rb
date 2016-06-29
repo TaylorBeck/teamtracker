@@ -17,6 +17,14 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET
+  def manage
+    @user = User.find(params[:id])
+    @players = Player.all
+    @teams = Team.all
+    @games = Game.all
+  end
+
   private
 
   def user_params
