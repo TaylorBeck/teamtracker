@@ -55,10 +55,14 @@ class Rsvp < ActiveRecord::Base
       )
   end
 
+  def when_to_send(num_of_days)
+    self.game.date - num_of_days.days
+  end
+
   # Create new delayed jobs to send reminders automatically
-  handle_asynchronously :send_reminder_automatically, :run_at => Proc.new { self.game.date - 7.days }
-  handle_asynchronously :send_reminder_automatically, :run_at => Proc.new { self.game.date - 3.days }
-  handle_asynchronously :send_reminder_automatically, :run_at => Proc.new { self.game.date - 2.days }
+  handle_asynchronously :send_reminder_automatically, :run_at => Proc.new { |i| i.when_to_send(7) }
+  handle_asynchronously :send_reminder_automatically, :run_at => Proc.new { |i| i.when_to_send(3) }
+  handle_asynchronously :send_reminder_automatically, :run_at => Proc.new { |i| i.when_to_send(2) }
 
   # Configure Twilio
   def boot_twilio

@@ -14,7 +14,6 @@ class RsvpsController < ApplicationController
   # TWILIO sends a post request here
   def receive_response_from_player
 
-
     # Find the player by the phone number that sent the text
     player_who_sent_message = Player.find_by(phone_number: params['From'])
     
