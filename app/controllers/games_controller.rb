@@ -2,7 +2,8 @@ class GamesController < ApplicationController
     before_filter :require_login, only: [:index]
 
   def index
-    @games = Game.all
+    @games = current_user.games
+    # @games = Game.all
   end
 
   def new
