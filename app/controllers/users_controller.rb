@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   # GET
   def manage
-    @user = User.find(params[:id])
+    @user = current_user
     @players = Player.all
     @teams = Team.all
     @games = Game.all
