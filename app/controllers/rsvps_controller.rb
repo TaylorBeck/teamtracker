@@ -1,6 +1,7 @@
 class RsvpsController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :only => "update"
+  # DISABLE 3rd party POST request detection
+  skip_before_filter :verify_authenticity_token
 
   def update
     p params

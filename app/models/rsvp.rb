@@ -9,9 +9,6 @@ class Rsvp < ActiveRecord::Base
   belongs_to :responder, class_name: "Player"
   belongs_to :game
 
-  # DISABLE 3rd party POST request detection
-  skip_before_filter :verify_authenticity_token
-
   def default_values
     self.response ||= "not responded"
   end
