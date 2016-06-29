@@ -6,7 +6,7 @@
 <!-- Check number of KEY players that have RSVP'd (do this by getting responder_id/player_id and checking if that player from TeamPlayerDetails page has TRUE for key_position attribute) -->
 <!-- Compare num players and Key players and set color of game(check this, may only care about min players) -->
 
-    <% if (rsvp.responder.team_player_details.where(key_position: true)) %>
+    <% unless (rsvp.responder.team_player_details.where(key_position: true, team: game.team)).empty? %>
       <% keyposition_count += 1 %>
     <% end %>
 
