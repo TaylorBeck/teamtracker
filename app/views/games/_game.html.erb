@@ -1,12 +1,13 @@
-<article class="game-details" >
+<article class="game-details", id="game-details-g">
   <div>
-    <%= game.team.name %>
-    <%= game.date %><br>
-    <%= game.time %><br>
-    <%= game.location %><br>
+    <span id="team_name"><%= game.team.name %></span><br>
+    <p><%= game.date.strftime('%m/%d/%Y') %><br>
+    <%= game.time.strftime('%H:%M') %> PM<br>
+    <%= game.location %></p><br>
   </div>
-  <div>
-    X /<%= game.team.ideal_players %>
-    <span>Key player</span>
+  <div class="player_num", id="player_count<%= game.team.min_players%>">
+    <%= game.team.min_players %>/<%= game.team.ideal_players %>
+    <br>
   </div>
+  <span id="key_player">Key player?</span>
 </article>
