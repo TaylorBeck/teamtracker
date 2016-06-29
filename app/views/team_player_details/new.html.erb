@@ -12,8 +12,9 @@
 <% end %>
 
 <%= form_for [@team, @team_player_detail] do |f| %>
+  <% players = Player.all.reject {|player| @team.players.include?(player) } %>
   <%= f.label :player_id %>:
-  <%= f.collection_select :player_id, Player.all, :id, :name %><br><br>
+  <%= f.collection_select :player_id, players, :id, :name %><br><br>
 
   <%= f.label :skill_level %>:
   <%= f.select :skill_level, (0..10) %><br>
