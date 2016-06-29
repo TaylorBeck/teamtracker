@@ -17,7 +17,7 @@ softball = Sport.create(name: 'Softball')
 # create teams
 team1 = Team.create(name: "Gary's Gilligans", sport: soccer, ideal_players: 5, min_players: 4, min_females: 2, manager: gary)
 team2 = Team.create(name: "Gary's Gophers", sport: volleyball, ideal_players: 4, min_players: 2, min_females: 1, manager: gary)
-team3 = Team.create(name: "Gary's Giraffes", sport: basketball, ideal_players: 4, min_players: 3, min_females: 2, manager: gary)
+team3 = Team.create(name: "Gary's Giraffes", sport: basketball, ideal_players: 5, min_players: 3, min_females: 2, manager: gary)
 team4 = Team.create(name: "Gary's Geese", sport: softball, ideal_players: 8, min_players: 6, min_females: 1, manager: gary)
 team5 = Team.create(name: "Gary's Gazelles", sport: soccer, ideal_players: 8, min_players: 6, min_females: 2, manager: gary)
 team6 = Team.create(name: "Gary's Gorillas", sport: volleyball, ideal_players: 8, min_players: 6, min_females: 1, manager: gary)
