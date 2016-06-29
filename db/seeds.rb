@@ -34,14 +34,14 @@ game8 = Game.create(team: team4, date: DateTime.now+7, time: DateTime.now, locat
 
 # create players
 mike = Player.create(name: 'Mike', gender: 'm', phone_number: '619-944-8738')
-elliot = Player.create(name: 'Elliot', gender: 'm', phone_number: '555-555-2832')
+elliot = Player.create(name: 'Elliot', gender: 'm', phone_number: '858-336-2522')
 mandy = Player.create(name: 'Mandy', gender: 'f', phone_number: '909-974-8030')
-martha = Player.create(name: 'Martha', gender: 'f', phone_number: '555-555-7890')
+martha = Player.create(name: 'Martha', gender: 'f', phone_number: '858-336-2522')
 taylor = Player.create(name: 'Taylor', gender: 'm', phone_number: '858-336-2522')
-joe = Player.create(name: 'Joe', gender: 'm', phone_number: '555-555-5678')
-jane = Player.create(name: 'Jane', gender: 'f', phone_number: '555-555-2222')
-mary = Player.create(name: 'Mary', gender: 'f', phone_number: '555-555-4567')
-fred = Player.create(name: 'Fred', gender: 'm', phone_number: '555-555-4321')
+joe = Player.create(name: 'Joe', gender: 'm', phone_number: '858-336-2522')
+jane = Player.create(name: 'Jane', gender: 'f', phone_number: '858-336-2522')
+mary = Player.create(name: 'Mary', gender: 'f', phone_number: '858-336-2522')
+fred = Player.create(name: 'Fred', gender: 'm', phone_number: '858-336-2522')
 
 # add players to teams (create team-player-details)
 joeteam1 = TeamPlayerDetail.create(key_position: false, skill_level: 5, player: joe, team: team1)
