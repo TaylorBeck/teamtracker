@@ -1,13 +1,53 @@
-<article class="game-details", id="game-details-g">
+  <!-- LOOP through players that have RSVP'd -->
+  <% rsvp_count = 0 %>
+  <% keyposition_count = 0 %>
+  <% game.rsvps.each do |rsvp| %>
+    <% rsvp_count += 1 %>
+<!-- Check number of KEY players that have RSVP'd (do this by getting responder_id/player_id and checking if that player from TeamPlayerDetails page has TRUE for key_position attribute) -->
+<!-- Compare num players and Key players and set color of game(check this, may only care about min players) -->
+
+    <% if (rsvp.responder.team_player_details.where(key_position: true)) %>
+      <% keyposition_count += 1 %>
+    <% end %>
+
+<!-- End Loop through RSVPs -->
+  <% end %>
+
+    <!-- Check number players RSVP'd vs minimum players -->
+    <% if (rsvp_count >= game.team.ideal_players) %>
+        <% set_id = "player_count-g" %>
+        <% box_id = "game-details-g" %>
+    <% elsif %>
+        <% (rsvp_count < game.team.ideal_players) && (rsvp_count >= game.team.min_players) %>
+        <% set_id = "player_count-y" %>
+        <% box_id = "game-details-y" %>
+    <% else %>
+        <% set_id = "player_count-r" %>
+        <% box_id = "game-details-r" %>
+    <% end %>
+
+    <!-- Check number players with Key Position -->
+    <% if (keyposition_count > 0) %>
+        <% key_boo = "yes" %>
+    <% else %>
+        <% key_boo = "no" %>
+    <% end %>
+
+<article class="game-details", id="<%= box_id %>">
+
   <div>
     <span id="team_name"><%= game.team.name %></span><br>
     <p><%= game.date.strftime('%m/%d/%Y') %><br>
     <%= game.time.strftime('%H:%M') %> PM<br>
     <%= game.location %></p><br>
   </div>
-  <div class="player_num", id="player_count<%= game.team.min_players%>">
-    <%= game.team.min_players %>/<%= game.team.ideal_players %>
-    <br>
+
+
+  <div class="player_num", id="<%= set_id %>" >
+     rsvp / ideal <br>
+     <%=rsvp_count%> / <%= game.team.ideal_players %>
   </div>
-  <span id="key_player">Key player?</span>
+  <br>
+  <span class="key_player", id="key_player-<%key_boo%>">Key players:<br> <%= keyposition_count %> / <%= game.team.ideal_players %> </span>
+
 </article>

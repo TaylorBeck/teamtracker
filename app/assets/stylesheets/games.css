@@ -13,19 +13,19 @@
   font-family: Georgia, serif;
   text-decoration: none;
   vertical-align: middle;
-  color: white;
+  color: black;
 }
 
 #game-details-g {
-  background-color: green;
+  background: linear-gradient(#009900, #00cc00);
 }
 
 #game-details-r {
-  background-color: red;
+  background: linear-gradient(#ff0000, #ff6600);
 }
 
 #game-details-y {
-  background-color: yellow;
+  background: linear-gradient(#ffff00, #ffffcc);
 }
 
 /*#team_name {
@@ -35,6 +35,29 @@
 .player_num {
   float: left;
   border: solid black 2px;
+  width: 150px;
+  margin: 2px auto;
+  padding: 5px;
+  color: black;
+  font-size: 16px;
+}
+
+#player_count-g {
+  background-color: green;
+}
+
+#player_count-y {
+  background-color: yellow;
+}
+
+#player_count-r {
+  background-color: red;
+}
+
+.key_player {
+  float: right;
+  background-color: red;
+  border: solid black 2px;
   width: 200px;
   margin: 2px auto;
   padding: 5px;
@@ -42,27 +65,13 @@
   font-size: 16px;
 }
 
-#player_count6 {
+#key_player-yes {
   background-color: green;
 }
-
-#player_count4 {
-  background-color: yellow;
-}
-
-#player_count2 {
+#key_player-no {
   background-color: red;
 }
 
-#key_player {
-  float: right;
-  background-color: red;
-  border: solid black 2px;
-  width: 150px;
-  /*margin: 2px auto;*/
-  padding: 5px;
-  color: black;
-  font-size: 16px;
-}
+
 
 
