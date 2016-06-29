@@ -25,7 +25,7 @@
   <h2>Games</h2>
   <%= link_to 'Create New Game', new_game_path, class: "nav_button index_button" %><br><br>
   <ul class="manage">
-  <% @games.each do |game| %>
+  <% @games.order(:date).each do |game| %>
     <li><%= link_to "#{game.team.name}", game %></li>
     <li><%= "#{game.date.strftime('%m/%d/%Y')}, #{game.time.strftime('%I:%M %p')}" %></li>
     <li><%= game.location %></li><br>
