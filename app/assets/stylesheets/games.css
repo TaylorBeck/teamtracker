@@ -17,7 +17,7 @@
 }
 
 #game-details-g {
-  background: linear-gradient(#009900, #00cc00);
+  background: linear-gradient(#009900, #00ff00);
 }
 
 #game-details-r {
@@ -58,8 +58,8 @@
   float: right;
   background-color: red;
   border: solid black 2px;
-  width: 200px;
-  margin: 2px auto;
+  width: 150px;
+  margin: -25px auto;
   padding: 5px;
   color: black;
   font-size: 16px;

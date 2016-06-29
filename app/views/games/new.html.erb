@@ -10,17 +10,16 @@
 
 <%= form_for @game do |f| %>
   <%= f.label :date %>:
-  <%= f.date_field :date %>
+  <%= f.date_field :date %><br>
 
   <%= f.label :time %>:
-  <%= f.time_field :time %>
+  <%= f.time_field :time %><br>
 
   <%= f.label :location %>:
-  <%= f.text_field :location %>
+  <%= f.text_field :location %><br>
 
   <%= f.label :team_id %>:
-  <%= f.number_field :team_id %>
+  <%= f.collection_select :team_id, Team.all, :id, :name %><br><br>
 
   <%= f.submit %>
 <% end %>
-

@@ -1,4 +1,4 @@
 <h2>Upcoming Games</h2>
 
 
-<%= render partial: "game", collection: @games %>
+<%= render partial: "game", collection: @games.sort_by(&:date) %>
