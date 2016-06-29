@@ -171,3 +171,7 @@ input {
 .game-details {
   background-color: red;
 }
+
+.player {
+  width: 300px;
+ }
