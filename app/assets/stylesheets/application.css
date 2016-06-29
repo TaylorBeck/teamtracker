@@ -163,6 +163,7 @@ ul.manage {
   padding-left: 0;
 }
 
+<<<<<<< HEAD
 input {
   margin: auto;
 }
@@ -175,4 +176,12 @@ div.big-manage {
   margin: 0 auto;
   margin-top: 20px;
   margin-left: 250px;
+}
+
+.b-yes.button-yes {
+  background-color: green;
+}
+
+.b-no.button-no {
+  background-color: red;
 }
