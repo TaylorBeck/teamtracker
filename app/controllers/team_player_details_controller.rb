@@ -13,8 +13,17 @@ class TeamPlayerDetailsController < ApplicationController
     @team = Team.find(params[:team_id])
     # create new team_player_detail object
     @team_player_detail = TeamPlayerDetail.new(team_player_detail_params)
+
     # save new object to team
+
+    puts "IAM BEFORE THE CONDITIONAL"
     if @team.team_player_details << @team_player_detail
+      #add RSVPs for player to all games for this team
+      puts "BEFORE RSVPS"
+      @team_player_detail.team.games.each do |game|
+        puts "Create RSVPS!!"
+        Rsvp.create(responder: @team_player_detail.player, game: game, response: "none")
+      end
       redirect_to @team
     else
       render 'new'
