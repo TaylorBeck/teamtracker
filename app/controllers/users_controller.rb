@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+  before_filter :require_login, only: [:manage]
 
+
+  def index
+  end
   # GET
   def register
     render 'users/new'
@@ -14,6 +18,18 @@ class UsersController < ApplicationController
     else
       @errors = @user.errors.full_messages
       render 'users/new'
+    end
+  end
+
+  # GET
+  def manage
+    if logged_in?
+      @user = current_user
+      @players = Player.all
+      @teams = Team.all
+      @games = Game.all
+    else
+      render ''
     end
   end
 

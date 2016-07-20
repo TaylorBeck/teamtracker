@@ -2,12 +2,12 @@
 
 <%= form_for :user_sessions, :url => user_sessions_path do |f| %>
   <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.label :email %>:
+    <%= f.text_field :email, :autofocus=>true %><br>
   </div>
   <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.label :password %>:
+    <%= f.password_field :password %><br>
   </div>
   <%= f.submit "Login" %>
 <% end %>

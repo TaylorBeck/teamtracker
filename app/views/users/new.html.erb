@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Register</h2>
 
 <% if @errors %>
   <ul>
@@ -9,14 +9,14 @@
 <% end %>
 
 <form class="registration" action="/users" method="POST">
-  <label>Name</label>
-  <input placeholder="Erlich Bachman" type="text" name="user[name]">
-  <label>Phone</label>
-  <input placeholder="(123)555-1234" type="tel" name="user[phone_number]">
-  <label>Email</label>
-  <input placeholder="erlich.bachman@gmail.com" type="text" name="user[email]">
-  <label>Password</label>
-  <input type="password" name="user[password]">
+  <label>Name</label>:
+  <input autofocus type="text" name="user[name]"><br>
+  <label>Phone</label>:
+  <input type="tel" name="user[phone_number]"><br>
+  <label>Email</label>:
+  <input type="text" name="user[email]"><br>
+  <label>Password</label>:
+  <input type="password" name="user[password]"><br>
 
-  <input type="submit" value="Sign up">
+  <input type="submit" value="Register">
 </form>

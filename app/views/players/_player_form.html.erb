@@ -1,0 +1,23 @@
+<% if @player.errors.any? %>
+  <ul>
+    <% @player.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @player do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name, :autofocus=>true %><br>
+
+  <%= label_tag(:gender_male, "Male") %>:
+  <%= f.radio_button(:gender, "male") %><br>
+  <%= label_tag(:gender_female, "Female") %>:
+  <%= f.radio_button(:gender, "female") %><br>
+
+  <%= f.label :phone_number %>:
+  <%= f.text_field :phone_number %><br>
+
+  <%= f.submit %>
+
+<% end %>

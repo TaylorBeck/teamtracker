@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag :application %>
-    <%= csrf_meta_tag %>
-    <%= yield(:head) %>
-  </head>
-  <body>
+    <title>TeamTracker</title>
     <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <% if logged_in? %>
-        <%= link_to 'LOGOUT', logout_path %>
-      <% else %>
-        <%= link_to 'LOGIN', login_path %>
-      <% end %>
-      <%= yield %>
-    </div>
+      <%=image_tag("TeamTracker-Banner.png", alt: "Team Tracker Banner", :width => 1200, :height => 150, :crop => :fill, :align=> "middle", :class => "image-container")%>
+      <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+      <%= csrf_meta_tags %>
+
+      <%= render partial: "layouts/page_layout" %>
+
+  </head><br><br><br>
+
+  <body class="body-container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <%= yield %>
   </body>
+  </div>
 </html>

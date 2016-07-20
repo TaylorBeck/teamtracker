@@ -1,0 +1,9 @@
+<%= link_to 'HOME', games_path, class: "nav_button", id: "nav_button_left", method: :get %>
+
+<% if logged_in? %>
+   <%= link_to 'LOGOUT', logout_path, class: "nav_button", id: "nav_button_right", method: :get %>
+<% else %>
+  <%= link_to 'LOGIN', login_path, class: "nav_button", id: "nav_button_right", :method => :get %>
+<% end %>
+
+<%= link_to 'MANAGE', manage_path, class: "nav_button", id: "nav_button_right", method: :get %>

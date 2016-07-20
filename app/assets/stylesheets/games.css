@@ -1,0 +1,77 @@
+.game-details {
+  display: block;
+  border: solid black 5px;
+  width: 500px;
+  /*height: 250px;*/
+  margin: 10px auto;
+  padding: 10px;
+  padding: 40px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 24px;
+  font-family: Georgia, serif;
+  text-decoration: none;
+  vertical-align: middle;
+  color: black;
+}
+
+#game-details-g {
+  background: linear-gradient(#009900, #00ff00);
+}
+
+#game-details-r {
+  background: linear-gradient(#ff0000, #ff6600);
+}
+
+#game-details-y {
+  background: linear-gradient(#ffff00, #ffffcc);
+}
+
+/*#team_name {
+    text-align: left;
+}*/
+
+.player_num {
+  float: left;
+  border: solid black 2px;
+  width: 150px;
+  margin: 2px auto;
+  padding: 5px;
+  color: black;
+  font-size: 16px;
+}
+
+#player_count-g {
+  background-color: green;
+}
+
+#player_count-y {
+  background-color: yellow;
+}
+
+#player_count-r {
+  background-color: red;
+}
+
+.key_player {
+  float: right;
+  background-color: red;
+  border: solid black 2px;
+  width: 150px;
+  margin: -25px auto;
+  padding: 5px;
+  color: black;
+  font-size: 16px;
+}
+
+#key_player-yes {
+  background-color: green;
+}
+#key_player-no {
+  background-color: red;
+}
+
+
+
+
